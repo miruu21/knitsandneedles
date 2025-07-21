@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="knitsandneedles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <title>checkout</title>
+</head>
+
+<body style="background-color: #f8c3c3;">
+   <ul class="navbar">
+    <li><a href="knitsandneedles.html" class="active"><b>knits & needles</b></a></li>
+    <li><a href="knitsflowers.html">Flowers</a></li>
+    <li><a href="knitgajray.html">Gajray</a></li>
+    <li> <a href="knitcharm.html">Charms</a></li>
+    <li style="float:right"><a href="checkout.html" class="carticon">🛒</a></li>
+  </ul>
+  
+  <h1>Your Cart</h1>
+
+  <div id="cart-items">
+    <!-- JavaScript will insert cart items here -->
+  </div>
+
+  <div id="total">Total: Rs 0</div>
+
+  <button class="checkout-button" onclick="goToForm()">Proceed to Checkout</button>
+
+  <script>
+    // Sample cart items (can be fetched from localStorage or another file)
+    let cart = JSON.parse(localStorage.getItem("cart")) || [
+      {
+        name: "Pearl Candle",
+        desc: "Elegant pearl-decorated candle",
+        price: 1200,
+        img: "https://via.placeholder.com/100"
+      },
+      {
+        name: "Glass Shard Vase",
+        desc: "Handmade luxury vase",
+        price: 3500,
+        img: "https://via.placeholder.com/100"
+      }
+    ];
+
+    const cartContainer = document.getElementById("cart-items");
+    const totalDiv = document.getElementById("total");
+
+    function renderCart() {
+  cartContainer.innerHTML = "";
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    total += item.price;
+
+    const itemDiv = document.createElement("div");
+    itemDiv.className = "cart-item";
+
+    itemDiv.innerHTML = `
+      <img src="${item.image}" alt="${item.itemname}">
+      <div class="item-details">
+        <h3>${item.itemname}</h3>
+        <p>No description available</p>
+        <p class="price">Rs ${item.price}</p>
+      </div>
+      <button class="remove-button" onclick="removeItem(${index})">Remove</button>
+    `;
+
+    cartContainer.appendChild(itemDiv);
+  });
+
+  totalDiv.innerText = `Total: Rs ${total}`;
+}
+    function removeItem(index) {
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCart();
+    }
+ function goToForm() {
+      window.location.href = "form.html"; // replace with your form page
+    }
+    renderCart();
+  </script>
+
+</body>
+</html>

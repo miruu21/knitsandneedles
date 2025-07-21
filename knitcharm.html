@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="knitsandneedles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <title>Shop Charms</title>
+</head>
+
+<body style="background-color: #f8c3c3;">
+   <ul class="navbar">
+    <li><a href="knitsandneedles.html" class="active"><b>knits & needles</b></a></li>
+    <li><a href="knitsflowers.html">Flowers</a></li>
+    <li><a href="knitgajray.html">Gajray</a></li>
+    <li> <a href="knitcharm.html">Charms</a></li>
+    <li style="float:right"><a href="checkout.html" class="carticon">🛒</a></li>
+  </ul>
+  
+<section>
+<ul class="items">
+  <li><img src="knitcharm1.jpg"> <h3>Turkish Eye Charm</h3> <p>Rs 1200</p>
+  <button onclick="addToCart('Turkish Eye Charm', 1200, 'knitcharm1')">Add to Cart</button>
+  </li>
+</ul>
+
+<ul class="items">
+  <li><img src="knitcharm2.jpg"> <h3>Sun and Moon Charm</h3> <p>Rs 1200</p>
+  <button onclick="addToCart('Sun and Moon Charm', 1200, 'knitcharm2')">Add to Cart</button>
+  </li>
+</ul>
+
+<ul class="items">
+  <li><img src="knitcharm4.jpg"> <h3>Daisy Charm</h3> <p>Rs 1200</p>
+  <button onclick="addToCart('Daisy Charm', 1200, 'knitcharm4')">Add to Cart</button>
+  </li>
+</ul>
+
+<ul class="items">
+  <li><img src="knitcharm3.jpg"> <h3>Sunflower Charm</h3> <p>Rs 1200</p>
+  <button onclick="addToCart('Sunflower Charm', 1200, 'knitcharm3')">Add to Cart</button>
+  </li>
+</ul>
+
+<ul class="items">
+  <li><img src="knitcharm5.jpg"> <h3>Rainbow Charm</h3> <p>Rs 1200</p>
+  <button onclick="addToCart('Rainbow Charm', 1200, 'knitcharm5')">Add to Cart</button>
+  </li>
+</ul>
+
+<ul class="items">
+  <li> <img src="knitcharm6.jpg"> <h3>Butterfly Keychain</h3> <p>Rs 800</p>
+  <button onclick="addToCart('Butterfly Keychain', 800, 'knitsneedles2')">Add to Cart</button>
+  </li>
+</ul>
+</section>
+
+<script>
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  function addToCart(itemname, price, image) {
+    cart.push({ itemname, price, image });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(`${itemname} added to cart!`);
+  }
+</script>

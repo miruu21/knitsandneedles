@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="knitsandneedles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <title>Shop Flowers</title>
+</head>
+
+<body style="background-color: #f8c3c3;">
+   <ul class="navbar">
+    <li><a href="knitsandneedles.html" class="active"><b>knits & needles</b></a></li>
+    <li><a href="knitsflowers.html">Flowers</a></li>
+    <li><a href="knitgajray.html">Gajray</a></li>
+    <li> <a href="knitcharm.html">Charms</a></li>
+    <li style="float:right"><a href="checkout.html" class="carticon">🛒</a></li>
+  </ul>
+  
+<section>
+<ul class="items">
+  <li><img src="rosesredwhite2.jpg"> <h3>Red and White Roses</h3> <p>Rs 1200</p>
+  <button onclick="addToCart('Red and White Roses', 1200, 'rosesredwhite2')">Add to Cart</button>
+  </li>
+</ul>
+
+<ul class="items">
+  <li><img src="rosespurple.jpg"> <h3>Purple Roses Flower Pot</h3> <p>Rs 1200</p>
+  <button onclick="addToCart('Purple Roses Flower Pot', 1200, 'rosespurple.jpg')">Add to Cart</button>
+  </li>
+</ul>
+
+<ul class="items">
+  <li><img src="rosesredwhitessmall5.jpg"> <h3>Red Roses and White Sunflowers</h3> <p>Rs 1200</p>
+  <button onclick="addToCart('Red Roses and White Sunflowers', 1200, 'rosesredwhitessmall5')">Add to Cart</button>
+  </li>
+</ul>
+
+<ul class="items">
+  <li><img src="lavender1.jpg"> <h3>Lavender</h3> <p>Rs 1200</p>
+  <button onclick="addToCart('Lavender', 1200, 'lavender1')">Add to Cart</button>
+  </li>
+</ul>
+
+<ul class="items">
+  <li><img src="tulips1.jpg"> <h3> Pink Tulips</h3> <p>Rs 1200</p>
+  <button onclick="addToCart('Pink Tulips', 1200, 'tulips1')">Add to Cart</button>
+  </li>
+</ul>
+
+<ul class="items">
+  <li><img src="rosespurplepink4.jpg"> <h3>Pink and Purple Bouquet</h3> <p>Rs 1200</p>
+  <button onclick="addToCart('Pink and Purple Bouquet', 1200, 'rosespurplepink4')">Add to Cart</button>
+  </li>
+</ul>
+
+<ul class="items">
+  <li> <img src="rosesmulti.jpg"> <h3>Multi-colored Roses</h3> <p>Rs 800</p>
+  <button onclick="addToCart('Multi-colored Roses', 800, 'rosesmulti')">Add to Cart</button>
+  </li>
+</ul>
+
+<ul class="items">
+  <li> <img src="flowerpots1.jpg"> <h3>Flower Pots</h3> <p>Rs 800</p>
+  <button onclick="addToCart('Flower Pots', 800, 'flowerpots1')">Add to Cart</button>
+  </li>
+</ul>
+
+<ul class="items">
+  <li> <img src="liliesblue.jpg"> <h3>Blue Lilies Flower Pot</h3> <p>Rs 800</p>
+  <button onclick="addToCart('Blue Lilies Flower Pot', 800, 'liliesblue')">Add to Cart</button>
+  </li>
+</ul>
+
+<ul class="items">
+  <li> <img src="tulipsandsmall2.jpg"> <h3>Tulip and Baby Breath</h3> <p>Rs 800</p>
+  <button onclick="addToCart('Tulip and Baby Breath', 800, 'tulipsandsmall2')">Add to Cart</button>
+  </li>
+</ul>
+
+  <ul class="items">
+  <li> <img src="sunflowerswhite6.jpg"> <h3>White Sunflowers</h3> <p>Rs 800</p>
+  <button onclick="addToCart('White Sunflowers', 800, 'sunflowerswhite6')">Add to Cart</button>
+  </li>
+</ul>
+
+<ul class="items">
+  <li> <img src="sunflowerpot.jpg"> <h3>Sunflower Flowerpot</h3> <p>Rs 800</p>
+  <button onclick="addToCart('Sunflower Flowerpot', 800, 'sunflowerpot')">Add to Cart</button>
+  </li>
+</ul>
+<ul class="items">
+  <li> <img src="sunflowers1.jpg"> <h3>Sunflowers</h3> <p>Rs 800</p>
+  <button onclick="addToCart('Sunflowers', 800, 'sunflowers1')">Add to Cart</button>
+  </li>
+</ul>
+
+<ul class="items">
+  <li> <img src="cactuspot.jpg"> <h3>Cactus Pot</h3> <p>Rs 800</p>
+  <button onclick="addToCart('Cactus Pot', 800, 'cactuspot')">Add to Cart</button>
+  </li>
+</ul>
+
+</section>
+
+<script>
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  function addToCart(itemname, price, image) {
+    cart.push({ itemname, price, image });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(`${itemname} added to cart!`);
+  }
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="knitsandneedles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <title>Shop Flowers</title>
+</head>
+
+<body style="background-color: #f8c3c3;">
+   <ul class="navbar">
+    <li><a href="knitsandneedles.html" class="active"><b>knits & needles</b></a></li>
+    <li><a href="knitsflowers.html">Flowers</a></li>
+    <li><a href="shopcaps.html">Caps</a></li>
+    <li> <a href="knitcharm.html">Charms</a></li>
+    <li style="float:right"><a href="checkout.html" class="carticon">🛒</a></li>
+  </ul>
+  
+<section>
+<ul class="items">
+  <li><img src=""> <h3>Sunflowers</h3> <p>Rs 1200</p>
+  <button onclick="addToCart('Sunflowers', 1200, 'knitsneedles2')">Add to Cart</button>
+  </li>
+</ul>
+
+<ul class="items">
+  <li> <img src="knitsneedles2.jpg"> <h3>Roses</h3> <p>Rs 800</p>
+  <button onclick="addToCart('Roses', 800, 'knitsneedles2')">Add to Cart</button>
+  </li>
+</ul>
+</section>
+
+<script>
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  function addToCart(itemname, price, image) {
+    cart.push({ itemname, price, image });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(`${itemname} added to cart!`);
+  }
+</script>

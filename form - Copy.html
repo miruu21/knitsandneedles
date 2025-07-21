@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="knitsandneedles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <title>checkout</title>
+</head>
+
+<body style="background-color: #f8c3c3;">
+   <ul class="navbar">
+    <li><a href="knitsandneedles.html" class="active"><b>knits & needles</b></a></li>
+    <li><a href="knitsflowers.html">Flowers</a></li>
+    <li><a href="knitgajray.html">Gajray</a></li>
+    <li> <a href="knitcharm.html">Charms</a></li>
+    <li style="float:right"><a href="checkout.html" class="carticon">🛒</a></li>
+  </ul>
+
+<form id="orderForm">
+  <label>Name:</label><br>
+  <input type="text" name="name" required><br><br>
+
+  <label>Email:</label><br>
+  <input type="email" name="email" required><br><br>
+
+  <label>Address:</label><br>
+  <textarea name="address" required></textarea><br><br>
+
+  <button type="submit">Submit Order</button>
+</form>
+
+<p id="responseMessage"></p>
+
+<script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbyLXQAGmiaxu2RwUtRZIMt8Iaum9z8ZDlRaPu1FFVDfM2vyKMubjXoHl79mFIfb4GEA/exec";
+
+  document.getElementById("orderForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    fetch(scriptURL, {
+      method: "POST",
+      body: formData
+    })
+    .then(response => {
+      document.getElementById("responseMessage").innerText = "Order submitted successfully!";
+      form.reset();
+    })
+    .catch(error => {
+      document.getElementById("responseMessage").innerText = "Something went wrong.";
+      console.error("Error!", error.message);
+    });
+  });
+</script>
